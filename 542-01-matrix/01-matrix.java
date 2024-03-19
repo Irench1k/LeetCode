@@ -2,6 +2,10 @@ class Solution {
     Queue<State> queue = new LinkedList<>();
     int[][] directions = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     public int[][] updateMatrix(int[][] mat) {
+        if (mat == null || mat.length == 0) {
+            return mat;
+        }
+        
         int n = mat.length;
         int m = mat[0].length;
         boolean[][] seen = new boolean[n][m];
