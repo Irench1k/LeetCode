@@ -23,7 +23,6 @@ class Solution {
         for (int i = 0; i < isConnected.length; i++) {
             if (!seen.contains(i)) {
                 answer++;
-                seen.add(i);
                 dfs(i);
             }
         }
@@ -32,10 +31,12 @@ class Solution {
     }
 
     public void dfs(int node) {
-        for (int neighbor : graph.get(node)) {
-            if (!seen.contains(neighbor)) {
-                seen.add(neighbor);
-                dfs(neighbor);
+        seen.add(node);
+        if (graph.containsKey(node)) {
+            for (int neighbor : graph.get(node)) {
+                if (!seen.contains(neighbor)) {
+                    dfs(neighbor);
+                }
             }
         }
     }
