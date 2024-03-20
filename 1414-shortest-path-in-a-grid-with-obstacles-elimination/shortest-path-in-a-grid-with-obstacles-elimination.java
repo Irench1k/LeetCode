@@ -15,7 +15,7 @@ class Solution {
         seen[0][0][k] = true;
         remains = k;
 
-        while(!queue.isEmpty() && remains >= 0) {
+        while(!queue.isEmpty()) {
             State state = queue.remove();
             int row = state.row, col = state.col, steps = state.steps, remains = state.remains;
 
